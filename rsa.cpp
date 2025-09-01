@@ -13,10 +13,6 @@ extern "C"{
 #include <iostream>
 #include <exception>
 
-#include "rsa_PUBMAN.cpp"
-#include "rsa_PRVMAN.cpp"
-#include "rsa_crypto.cpp"
-
 RSA_keys::RSA_keys(){
     this->prv = nullptr;
     this->pub = nullptr;

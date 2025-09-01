@@ -1,3 +1,12 @@
+#include "rsa.h"
+extern "C"{
+#include <openssl/evp.h>
+#include <openssl/pem.h>
+#include <openssl/err.h>
+}
+#include <cstdio>
+#include <iostream>
+
 void RSA_keys::encrypt(const unsigned char* plaintext, int msglen){
     if(!this->pub)
         throw std::logic_error("There is no public key set");

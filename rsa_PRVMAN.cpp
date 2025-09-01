@@ -1,3 +1,12 @@
+#include "rsa.h"
+extern "C"{
+#include <openssl/evp.h>
+#include <openssl/pem.h>
+}
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+
 void RSA_keys::load_prvPEM(const char* filepath, char* passwd){
 
     std::FILE* fp = nullptr;
@@ -16,7 +25,6 @@ void RSA_keys::load_prvPEM(const char* filepath, char* passwd){
 
 
     std::fclose(fp);
-    //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
     if(_extract_pub(this->prv, &this->pub)) std::cerr << "RSA_keys::load_prvPEM _extract_pub error\n";
 }
 

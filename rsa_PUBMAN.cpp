@@ -1,3 +1,12 @@
+#include "rsa.h"
+extern "C"{
+#include <openssl/evp.h>
+#include <openssl/pem.h>
+}
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+
 void RSA_keys::load_pubPEM(const char* filepath){
     std::FILE* fp = nullptr;
     fp = std::fopen(filepath, "r");

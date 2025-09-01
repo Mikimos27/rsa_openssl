@@ -1,19 +1,22 @@
 CXX=g++
 CFLAGS=-g -Wall -Werror -O3 -lcrypto
 
-all: out
+SRC=$(wildcard *.cpp)
+OBJ=$(SRC:.cpp=.o)
+BIN=out
 
 
-crypt.o: crypt.cpp
-	$(CXX) $(CFLAGS) -c $@ $^
+all: $(BIN)
 
-rsa.o: rsa.cpp rsa_*
-	$(CXX) $(CFLAGS) -c $@ rsa.cpp
 
-out: rsa.o crypt.o
+%.o: %.cpp rsa.h
+	$(CXX) $(CFLAGS) -c $@ $<
+
+$(BIN): $(OBJ)
+	@echo $(SRC)
 	$(CXX) $(CFLAGS) -o $@ $^
 
 .PHONY: clean
 
 clean:
-	rm *.o
+	rm -f $(BIN) $(OBJ)
