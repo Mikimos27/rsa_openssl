@@ -1,5 +1,5 @@
 CXX=g++
-CFLAGS=-g -Wall -Werror -O3 -lcrypto
+CFLAGS=-g -Wall -Werror -O2 -lcrypto
 
 SRC=$(wildcard *.cpp)
 OBJ=$(SRC:.cpp=.o)
