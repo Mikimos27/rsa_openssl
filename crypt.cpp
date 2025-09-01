@@ -68,7 +68,7 @@ int test_rsa(int argc, char** argv){
         return 1;
     }
 
-    const char* msg = "Halo halo halo kurna";
+    const char* msg = "Secret message to safely send";
     if(argc < 2){
         std::cerr << "No message given or message too long\nUsing defaults\n";
     }
